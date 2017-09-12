@@ -62,3 +62,56 @@ presets: airbnb
 1. One place to check
 1. Universal configuration
 1. Part of continuous integration
+
+### Usage
+
+npm scripts:
+
+```json
+"lint": "esw webpack.config.* src buildScripts --color",  // tell which files or folders to lint
+"lint:watch": "npm run lint -- --watch"
+```
+
+dependencies:
+
+```json
+"eslint": "4.6.1",
+"eslint-watch": "3.1.2",
+```
+
+.eslintrc.json
+
+```json
+{
+  "root": true,
+  "extends": [
+    "eslint:recommended"
+    // "plugin:react/recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 7,
+    "sourceType": "module"
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "mocha": true
+  },
+  "rules": {
+    "no-console": 1
+  }
+}
+```
+
+disable linting for individual file:
+
+```javascript
+/* eslint-disable no-console */
+console.log('111')
+```
+
+disable linting for a specific line
+
+```javascript
+console.log('111')  // eslint-disable-line no-console
+```
