@@ -5,7 +5,7 @@
 1. [Package Management](docs/3_package_managers.md)
 1. [Development Webserver, Sharing work-in-progress, localtunnel](docs/4_devServer.md)
 1. [Automation](docs/5_automation.md)
-1. Transpiling
+1. [Transpiling](docs/6_transpiling.md)
 1. Bundling
 1. Linting
 1. HTTP
