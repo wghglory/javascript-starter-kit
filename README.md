@@ -2,7 +2,7 @@
 
 1. [Intro](docs/1_Consideration.md)
 1. [Editors and configuration](docs/2_Editors_Configuration.md)
-1. Package management
+1. [Package Management](docs/3_package_managers.md)
 1. Development webserver
 1. Automation
 1. Transpiling
