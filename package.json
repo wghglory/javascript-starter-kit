@@ -3,8 +3,14 @@
   "version": "1.0.0",
   "description": "JavaScript development environment Pluralsight course",
   "scripts": {
-    "start": "node buildScripts/srcServer",
-    "checkpackage": "nsp check"
+    "prestart": "node buildScripts/startMessage",
+    "start:server": "node buildScripts/srcServer",
+    "start": "npm-run-all --parallel security-check start:server",
+    "start2": "npm run security-check & npm run start:server",
+    "security-check": "nsp check",
+    "localtunnel": "lt --port 3000 --subdomain wghglory & open https://wghglory.localtunnel.me",
+    "share": "npm-run-all --parallel start:server localtunnel",
+    "share2": "npm run start:server & npm run localtunnel"
   },
   "author": "Guanghui Wang",
   "license": "MIT",
