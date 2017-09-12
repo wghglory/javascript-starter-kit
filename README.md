@@ -6,7 +6,7 @@
 1. [Development Webserver, Sharing work-in-progress, localtunnel](docs/4_devServer.md)
 1. [Automation](docs/5_automation.md)
 1. [Transpiling](docs/6_transpiling.md)
-1. Bundling
+1. [Bundling -- Webpack, Rollup](docs/7_bundle.md)
 1. Linting
 1. HTTP
 1. Testing and CI
