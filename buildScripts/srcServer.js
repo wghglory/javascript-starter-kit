@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 /** express dev server */
 
 // babel-node support import for nodejs

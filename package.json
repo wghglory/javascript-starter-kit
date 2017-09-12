@@ -10,7 +10,8 @@
     "security-check": "nsp check",
     "localtunnel": "lt --port 3000 --subdomain wghglory & open https://wghglory.localtunnel.me",
     "share": "npm-run-all --parallel start:server localtunnel",
-    "share2": "npm run start:server & npm run localtunnel"
+    "share2": "npm run start:server & npm run localtunnel",
+    "eslint:watch": "esw webpack.config.* src buildScripts --color"
   },
   "author": "Guanghui Wang",
   "license": "MIT",
@@ -21,7 +22,7 @@
     "babel-cli": "6.26.0",
     "babel-core": "6.26.0",
     "babel-loader": "7.1.2",
-    "babel-preset-latest": "6.24.1",
+    "babel-preset-env": "1.6.0",
     "babel-register": "6.26.0",
     "chai": "4.1.2",
     "chalk": "2.1.0",
@@ -30,7 +31,6 @@
     "cross-env": "5.0.5",
     "css-loader": "0.28.7",
     "eslint": "4.6.1",
-    "eslint-plugin-import": "2.7.0",
     "eslint-watch": "3.1.2",
     "express": "4.15.4",
     "extract-text-webpack-plugin": "3.0.0",

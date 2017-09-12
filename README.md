@@ -7,7 +7,7 @@
 1. [Automation](docs/5_automation.md)
 1. [Transpiling](docs/6_transpiling.md)
 1. [Bundling -- Webpack, Rollup](docs/7_bundle.md)
-1. Linting
+1. [Linting](docs/8_linting.md)
 1. HTTP
 1. Testing and CI
 1. Project structure
