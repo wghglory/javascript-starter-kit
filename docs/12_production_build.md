@@ -89,3 +89,29 @@ Best way is to use `html-webpack-plugin` since we use webpack.
     +    })
       ]
     ```
+
+### Cache Busting
+
+* Save HTTP Requests
+* Force request for latest version
+
+#### Setup Cache busting
+
+1. Hash bundle filename. If no code changes, no filename changes.
+1. Generate HTML dynamically
+
+```javascript
+import WebpackMd5Hash from 'webpack-md5-hash';
+
+export default {
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
+    filename: '[name].[chunkhash].js'
+  },
+  plugins: [
+    // Hash the files using MD5 so that their names change when the content changes.
+    new WebpackMd5Hash()
+  ]
+}
+```
