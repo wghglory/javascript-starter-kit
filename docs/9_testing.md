@@ -217,3 +217,35 @@ The code is working on my machine, but it breaks on the CI server.
 1. If I intently change index.html h1 from 'hello world' to 'hello' and then commit to github. Note our test watching task only watches js now, so html changes won't be reflected in terminal unless restarting.
 
 1. After commit and push to github. Travis will build and give us the build result.
+
+#### [Appveyor for windows](https://ci.appveyor.com/)
+
+appveyor.yml:
+
+```
+# test against this version of node.s
+environment:
+  matrix:
+  # node.js
+  - nodejs_version: "7"
+
+# install scripts. (runs after repo cloning)
+install:
+  # get the latest stable version of node.js or io.js
+  - ps: Install-Product node $env:nodejs_version
+  # install modules
+  - npm install
+
+# post-install test scripts
+test_script:
+  # output useful info for debugging
+  - node --version
+  - npm --version
+  # run tests
+  - npm test
+
+# don't actually build
+build: off
+```
+
+Usage is same with Travis. Sign in by github, add the project. When push commits to github, appveyor will build.
