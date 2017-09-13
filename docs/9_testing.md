@@ -202,7 +202,7 @@ The code is working on my machine, but it breaks on the CI server.
 * Semaphore
 * SnapCI
 
-#### [Travis CI](https://travis-ci.org)
+#### [Travis CI for unix](https://travis-ci.org)
 
 1. Sign in by github and you should see all repositories. Turn on "wghglory/javascript-starter-kit".
 
@@ -214,6 +214,6 @@ The code is working on my machine, but it breaks on the CI server.
       - "7"
     ```
 
-1. If I intently change index.html h1 from 'hello world' to 'hello' and then commit to github.
+1. If I intently change index.html h1 from 'hello world' to 'hello' and then commit to github. Note our test watching task only watches js now, so html changes won't be reflected in terminal unless restarting.
 
-1. After commit and push to github. Travis will build and give us the result.
+1. After commit and push to github. Travis will build and give us the build result.
