@@ -115,3 +115,28 @@ export default {
   ]
 }
 ```
+
+### Separate CSS
+
+```javascript
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
+
+export default {
+  plugins: [
+    // Generate an external css file with a hash in the filename
+    new ExtractTextPlugin('[name].[contenthash].css'),
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: "css-loader",
+          publicPath: "/dist"
+        })
+      }
+    ]
+  }
+};
+```
