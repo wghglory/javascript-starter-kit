@@ -9,7 +9,7 @@
 1. [Bundling -- Webpack, Rollup](docs/7_bundle.md)
 1. [Linting](docs/8_linting.md)
 1. [Testing and CI](docs/9_testing_CI.md)
-1. HTTP
+1. [HTTP calls](docs/10_httpcalls.md)
 1. Project structure
 1. Production build
 1. Automated deployment
