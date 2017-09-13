@@ -4,14 +4,23 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 export default {
   devtool: 'source-map',
-  entry: [path.resolve(__dirname, 'src/index')],
+  entry: {
+    vendor: path.resolve(__dirname, 'src/vendor'),
+    main: path.resolve(__dirname, 'src/index')
+  },
   target: 'web',
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: '[name].js'
   },
   plugins: [
+    // Use CommonsChunkPlugin to create a separate bundle
+    // of vendor libraries so that they're cached separately.
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor'
+    }),
+
     // Create html file that includes reference to bundled js
     new HtmlWebpackPlugin({
       template: 'src/index.html',
@@ -36,13 +45,15 @@ export default {
     new webpack.optimize.UglifyJsPlugin()
   ],
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.(js)$/,
         use: 'babel-loader',
         exclude: /node_modules/
       },
-      { test: /\.css$/, loaders: ['style-loader', 'css-loader'] }
+      {
+        test: /\.css$/,
+        loaders: ['style-loader', 'css-loader']
+      }
     ]
   }
 };

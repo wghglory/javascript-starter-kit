@@ -45,3 +45,47 @@ Create build.js and distServer.js
 "build": "babel-node buildScripts/build.js",
 "postbuild": "babel-node buildScripts/distServer.js"
 ```
+
+### Why Manipulate HTML for Production?
+
+* Reference bundles automatically
+* Handle dynamic bundle names
+* Inject production only resources
+* Minify
+
+Best way is to use `html-webpack-plugin` since we use webpack.
+
+### Why Bundle/Code Splitting
+
+* Important for larger application
+* Speed initial page load
+* Avoid re-downloading all libraries
+
+1. vendor.js
+
+    ```javascript
+    /* eslint-disable no-unused-vars */
+
+    import fetch from 'whatwg-fetch';
+    ```
+
+1. webpack.config.prod.js
+
+    ```diff
+      entry: {
+    +    vendor: path.resolve(__dirname, 'src/vendor'),
+    +    main: path.resolve(__dirname, 'src/index')
+      },
+      output: {
+        path: path.resolve(__dirname, 'dist'),
+        publicPath: '/',
+    +    filename: '[name].js'
+      },
+      plugins: [
+    +    // Use CommonsChunkPlugin to create a separate bundle
+    +    // of vendor libraries so that they're cached separately.
+    +    new webpack.optimize.CommonsChunkPlugin({
+    +      name: 'vendor'
+    +    })
+      ]
+    ```
