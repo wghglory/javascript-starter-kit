@@ -8,8 +8,8 @@
 1. [Transpiling](docs/6_transpiling.md)
 1. [Bundling -- Webpack, Rollup](docs/7_bundle.md)
 1. [Linting](docs/8_linting.md)
+1. [Testing and CI](docs/9_testing.md)
 1. HTTP
-1. Testing and CI
 1. Project structure
 1. Production build
 1. Automated deployment

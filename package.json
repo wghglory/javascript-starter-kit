@@ -5,14 +5,16 @@
   "scripts": {
     "prestart": "babel-node buildScripts/startMessage",
     "start:server": "babel-node buildScripts/srcServer",
-    "start": "npm-run-all --parallel security-check start:server lint:watch",
+    "start": "npm-run-all --parallel security-check start:server lint:watch test:watch",
     "start2": "npm run security-check & npm run start:server",
     "security-check": "nsp check",
     "localtunnel": "lt --port 3000 --subdomain wghglory & open https://wghglory.localtunnel.me",
     "share": "npm-run-all --parallel start:server localtunnel",
     "share2": "npm run start:server & npm run localtunnel",
     "lint": "esw webpack.config.* src buildScripts --color",
-    "lint:watch": "npm run lint -- --watch"
+    "lint:watch": "npm run lint -- --watch",
+    "test": "mocha --reporter progress buildScripts/testSetup.js src/**/*.test.js",
+    "test:watch": "npm run test -- -w"
   },
   "author": "Guanghui Wang",
   "license": "MIT",
