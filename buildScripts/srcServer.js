@@ -25,6 +25,7 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../src/index.html'));
 });
 
+// assume this is production api. Json-server /users returns data for development environment
 app.get('/users', (req, res) => {
   res.json([
     { id: 1, firstName: 'guanghui', lastName: 'wang', email: 'hello@gmail.com' },

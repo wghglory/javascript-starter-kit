@@ -1,5 +1,5 @@
 import './index.css';
-import { getUsers } from './api/userApi';
+import { getUsers, deleteUser } from './api/userApi';
 
 getUsers().then(result => {
   let usersBody = result.map(
@@ -10,11 +10,21 @@ getUsers().then(result => {
       <td>${u.firstName}</td>
       <td>${u.lastName}</td>
       <td>${u.email}</td>
-    </tr>
-  `
+    </tr>`
   );
 
-  global.document.getElementById('users').innerHTML = usersBody;
+  global.document.getElementById('users').innerHTML = usersBody.join('');
+
+  const deleteLinks = document.querySelectorAll('.deleteUser');
+  Array.from(deleteLinks, link => {
+    link.onclick = e => {
+      const ele = e.target;
+      e.preventDefault();
+      deleteUser(ele.dataset.id);
+      const row = ele.parentNode.parentNode; // tr
+      row.parentNode.removeChild(row);
+    };
+  });
 });
 
 /* eslint-disable no-console */
