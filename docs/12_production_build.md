@@ -140,3 +140,90 @@ export default {
   }
 };
 ```
+
+### Error Logging
+
+* TrackJS(✅)
+* Sentry
+* New Relic
+* Raygun
+
+Things to be considered:
+
+* Error Metadata
+  * Browser
+  * Stack trace
+  * Previous actions
+  * Custom API for enhanced tracking
+* Notifications & integrations
+* Analytics and filtering
+* Pricing
+
+#### [Track.js](https://my.trackjs.com)
+
+1. Install the Tracker Library
+
+    ```
+    The Tracker library lives in your web application. Paste this snippet before your other scripts in the <head> of your page.
+
+    <!-- BEGIN TRACKJS -->
+    <script type="text/javascript">window._trackJs = { token: '7a7c1c686a66488c8bd4b229de471250' };</script>
+    <script type="text/javascript" src="https://cdn.trackjs.com/releases/current/tracker.js"></script>
+    <!-- END TRACKJS -->
+    ```
+
+1. Track an Error
+
+    ```
+    Tracker logs errors automatically, but to verify it's working let's try it manually. You can track an error from anywhere in your application, or in your developer console:
+
+    trackJs.track('ahoy trackjs!');
+    ```
+
+手动错误上报：(interview/frontend/错误监控.md）
+
+```javascript
+window.addEventListener('error', function (e) {
+  console.log('捕获', e);
+  (new Image()).src = 'http://baidu.com/tesjk?r=tksjk';
+}, true);
+```
+
+Now the error logging happened both development and production environment. Actually we only want to monitor production. We can extend HtmlWebpackPlugin property and its default template ejs to update index.html
+
+```javascript
+// webpack.config.prod.js
+plugins: [
+  new HtmlWebpackPlugin({
+      template: 'src/index.html',
+      inject: true,
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+        removeEmptyAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        keepClosingSlash: true,
+        minifyJS: true,
+        minifyCSS: true,
+        minifyURLs: true
+      },
+
+      // Properties you define here are available in index.html
+      // using htmlWebpackPlugin.options.varName
+      trackJSToken: '7a7c1c686a66488c8bd4b229de471250'
+    })
+]
+```
+
+index.html
+
+```html
+<% if(htmlWebpackPlugin.options.trackJSToken) { %>
+<!-- BEGIN TRACKJS -->
+<script type="text/javascript">window._trackJs = { token: '7a7c1c686a66488c8bd4b229de471250' };</script>
+<script type="text/javascript" src="https://cdn.trackjs.com/releases/current/tracker.js"></script>
+<!-- END TRACKJS -->
+<% } %>
+```
