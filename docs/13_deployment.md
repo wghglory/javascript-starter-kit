@@ -15,8 +15,30 @@
 
 amazon web services
 microsoft azure
-heroku
+Heroku
 firebase
 google cloud platform
 github (static files only)
-surge (static files only)
+Surge (static files only)
+
+## Hosting javascript-starter-kit-api to [Heroku](http://heroku.com)
+
+We separate API and UI.
+
+The repository is at <https://github.com/wghglory/javascript-starter-kit-api>. See some configurations needed there for heroku. This api repository will be hosted in heroku.
+
+* app.json - describe app to heroku
+* Procfile - command that heroku should run
+
+## Deploy static files to [Surge](http://surge.sh)
+
+package.json:
+
+```json
+"deploy": "surge ./dist"
+```
+
+```bash
+npm run build -s
+npm run deploy
+```

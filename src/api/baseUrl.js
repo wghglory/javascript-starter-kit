@@ -2,7 +2,7 @@
 export default function getBaseUrl() {
   return getQueryStringParameterByName('useMockApi')
     ? 'http://localhost:3001/'  // mockapi address
-    : '/';   // production api
+    : 'https://agile-thicket-69985.herokuapp.com/';   // production api
 }
 
 function getQueryStringParameterByName(name, url) {
