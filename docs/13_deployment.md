@@ -21,7 +21,7 @@ google cloud platform
 github (static files only)
 Surge (static files only)
 
-## Hosting javascript-starter-kit-api to [Heroku](http://heroku.com)
+## Hosting javascript-starter-kit-api(API) to [Heroku](http://heroku.com)
 
 We separate API and UI.
 
@@ -30,7 +30,7 @@ The repository is at <https://github.com/wghglory/javascript-starter-kit-api>. S
 * app.json - describe app to heroku
 * Procfile - command that heroku should run
 
-## Deploy static files to [Surge](http://surge.sh)
+## Deploy static files(UI) to [Surge](http://surge.sh)
 
 package.json:
 
