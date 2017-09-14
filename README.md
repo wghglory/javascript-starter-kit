@@ -12,4 +12,4 @@
 1. [HTTP calls](docs/10_httpcalls.md)
 1. [Project structure](docs/11_structure.md)
 1. [Production build](docs/12_production_build.md)
-1. Automated deployment
+1. [Automated deployment](docs/13_deployment.md)
