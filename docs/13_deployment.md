@@ -45,5 +45,5 @@ npm run deploy
 
 ### Reference
 
-React starter: <http://andrewhfarmer.com/starter-project/>
-Angular starter: <https://github.com/gianarb/awesome-angularjs>
+* React starter: <http://andrewhfarmer.com/starter-project/>
+* Angular starter: <https://github.com/gianarb/awesome-angularjs>
