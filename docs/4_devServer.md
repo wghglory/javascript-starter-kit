@@ -41,7 +41,7 @@ app.listen(port, (err) => {
 
 ### localtunnel (great!)
 
-Easiest setup Ultra-versatile. Easily share work on your local machine
+Easiest setup Ultra-versatile. Easily share work on your local machine. 让内网服务器暴露到公网上的开源项目
 
 Setup:
 
